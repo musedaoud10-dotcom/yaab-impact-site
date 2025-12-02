@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>YAAB Impact</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">YAAB Impact</a>
+      <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+      <nav id="main-nav" class="nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container">
+        <h1>We help social organisations multiply their impact</h1>
+        <p class="lead">Strategic coaching, product design and fundraising support for mission-driven teams.</p>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <section id="about" class="container section">
+      <h2>About YAAB Impact</h2>
+      <p>We partner with organisations to design sustainable programmes and raise funds that scale.</p>
+    </section>
+
+    <section id="work" class="container section">
+      <h2>Our Work</h2>
+      <div class="cards">
+        <article class="card"><h3>Strategy</h3><p>Programme design, monitoring &amp; evaluation.</p></article>
+        <article class="card"><h3>Design</h3><p>Service &amp; product design for impact.</p></article>
+        <article class="card"><h3>Fundraising</h3><p>Grant writing and investor readiness.</p></article>
+      </div>
+    </section>
+
+    <section id="impact" class="container section">
+      <h2>Impact</h2>
+      <p>We measure success by lives changed — examples include X beneficiaries reached.</p>
+    </section>
+
+    <section id="contact" class="container section">
+      <h2>Contact</h2>
+      <!-- Replace YOUR_FORM_ID below with the Formspree form id you receive -->
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New contact from YAAB Impact site">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+          <span class="error" id="name-error" aria-live="polite"></span>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <!-- name must be _replyto for Formspree to use it as reply-to -->
+          <input id="email" name="_replyto" type="email" required>
+          <span class="error" id="email-error" aria-live="polite"></span>
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <span class="error" id="message-error" aria-live="polite"></span>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; YAAB Impact 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
