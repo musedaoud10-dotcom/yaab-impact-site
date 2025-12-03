@@ -1,115 +1,91 @@
-/*
-  Combined improved interactivity:
-  - Mobile nav toggle
-  - Smooth scrolling
-  - Scroll-spy to highlight nav links
-  - Reveal animations using IntersectionObserver
-  - Client-side validation + AJAX submit to Formspree (uses form action)
-*/
+// Mobile nav toggle, smooth scroll, reveal animations, and form validation + AJAX (Formspree)
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Mobile nav toggle
   const menuToggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('main-nav');
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
       const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !expanded);
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('show');
     });
   }
 
-  // Smooth scroll for internal links (close mobile nav)
+  // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        if (nav.classList.contains('show')) {
-          nav.classList.remove('show');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
-  });
-
-  // Scroll-spy: highlight nav links for visible sections
-  const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('#main-nav a');
-  if (sections.length && navLinks.length) {
-    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.45 };
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const link = document.querySelector(`#main-nav a[href="#${id}"]`);
-        if (link) {
-          if (entry.isIntersecting) {
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+    const href = link.getAttribute('href');
+    // allow normal behaviour for '#' or external links
+    if (href && href.length > 1) {
+      link.addEventListener('click', (e) => {
+        const target = document.getElementById(href.slice(1));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (nav.classList.contains('show')) {
+            nav.classList.remove('show');
+            menuToggle.setAttribute('aria-expanded', 'false');
           }
         }
       });
-    }, observerOptions);
-    sections.forEach(s => sectionObserver.observe(s));
-  }
+    }
+  });
 
-  // Reveal animation for elements with .reveal
-  const reveals = document.querySelectorAll('.reveal');
-  if (reveals.length) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          revealObserver.unobserve(entry.target);
+  // IntersectionObserver reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('revealed');
+          obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => revealObserver.observe(r));
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obs.observe(el));
   }
 
-  // Contact form: client validation + AJAX submission to Formspree
+  // Form validation + AJAX submit (Formspree)
   const form = document.getElementById('contact-form');
-  const formMessage = document.getElementById('form-message');
+  const fm = document.getElementById('form-message');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (formMessage) { formMessage.textContent = ''; formMessage.style.color = ''; }
+      if (fm) { fm.textContent = ''; fm.style.color = ''; }
 
-      const nameInput = document.getElementById('name');
-      const emailInput = document.getElementById('email');
-      const messageInput = document.getElementById('message');
-      let hasError = false;
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      let error = false;
 
-      function setError(input, message) {
-        const err = document.getElementById(`${input.id}-error`);
-        if (err) err.textContent = message;
-        hasError = true;
-      }
-      function clearError(input) {
-        const err = document.getElementById(`${input.id}-error`);
-        if (err) err.textContent = '';
-      }
+      const setErr = (el, txt) => {
+        const node = document.getElementById(el.id + '-error');
+        if (node) node.textContent = txt;
+        error = true;
+      };
+      const clearErr = (el) => {
+        const node = document.getElementById(el.id + '-error');
+        if (node) node.textContent = '';
+      };
 
-      // Validations
-      if (!nameInput.value.trim()) setError(nameInput, 'Please enter your name.');
-      else clearError(nameInput);
+      if (!name.value.trim()) setErr(name, 'Please enter your name.');
+      else clearErr(name);
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim()) setError(emailInput, 'Please enter your email address.');
-      else if (!emailPattern.test(emailInput.value.trim())) setError(emailInput, 'Please enter a valid email address.');
-      else clearError(emailInput);
+      const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim()) setErr(email, 'Please enter your email.');
+      else if (!emailRx.test(email.value.trim())) setErr(email, 'Please enter a valid email address.');
+      else clearErr(email);
 
-      if (!messageInput.value.trim()) setError(messageInput, 'Please enter a message.');
-      else clearError(messageInput);
+      if (!message.value.trim()) setErr(message, 'Please enter a message.');
+      else clearErr(message);
 
-      if (hasError) return;
+      if (error) return;
 
       const submitBtn = form.querySelector('button[type="submit"]');
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
 
       try {
-        const endpoint = form.action; // e.g. https://formspree.io/f/ABC123
+        const endpoint = form.action; // keep the placeholder until you set real ID
         const data = new FormData(form);
         const res = await fetch(endpoint, {
           method: 'POST',
@@ -118,22 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (res.ok) {
           form.reset();
-          if (formMessage) {
-            formMessage.style.color = 'green';
-            formMessage.textContent = 'Thanks — your message was sent.';
-          }
+          if (fm) { fm.style.color = 'green'; fm.textContent = 'Thanks — your message was sent.'; }
         } else {
-          const body = await res.json().catch(() => ({}));
-          if (formMessage) {
-            formMessage.style.color = 'crimson';
-            formMessage.textContent = body.error || 'Sorry — there was a problem sending your message.';
-          }
+          const body = await res.json().catch(()=>({}));
+          if (fm) { fm.style.color = 'crimson'; fm.textContent = body.error || 'Sorry — there was a problem sending your message.'; }
         }
       } catch (err) {
-        if (formMessage) {
-          formMessage.style.color = 'crimson';
-          formMessage.textContent = 'Network error — please try again later.';
-        }
+        if (fm) { fm.style.color = 'crimson'; fm.textContent = 'Network error — please try again later.'; }
       } finally {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send message'; }
       }
