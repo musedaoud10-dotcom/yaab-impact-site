@@ -7,17 +7,23 @@
   --card-bg:#ffffff;
   --max-width:1200px;
   --gap:20px;
+
+  /* logo sizing: tweak these to adjust logo size quickly */
+  --logo-height-desktop: 96px;
+  --logo-height-mobile: 64px;
 }
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased}
 a{color:inherit}
 .container{max-width:var(--max-width);margin:0 auto;padding:28px}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+/* Header */
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px}
 .site-header{background:rgba(255,255,255,0.95);backdrop-filter:saturate(1.1) blur(4px);position:sticky;top:0;z-index:80;border-bottom:1px solid rgba(8,12,20,0.04)}
 /* Logo image style */
 .logo { display:inline-block; text-decoration:none; }
 .site-logo {
-  height:64px;            /* increased desktop logo height */
+  height:var(--logo-height-desktop);   /* larger desktop logo */
   width:auto;
   display:block;
   object-fit:contain;
@@ -92,7 +98,9 @@ input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(1
   .nav ul{flex-direction:column}
   .hero{min-height:360px;padding:40px 0}
   .hero h1{font-size:28px}
-  .site-logo { height:52px; } /* mobile logo slightly larger than before */
+
+  /* mobile logo size controlled by variable */
+  .site-logo { height:var(--logo-height-mobile); }
 }
 
 /* Legacy base rules and helpers (ensures layout elements match earlier expectations) */
