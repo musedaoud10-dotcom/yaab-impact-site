@@ -9,8 +9,8 @@
   <meta property="og:description" content="Strategic coaching, product design and fundraising support for mission-driven teams.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/og-image.jpg">
-  <!-- Use the logo as the favicon (PNG works fine) -->
-  <link rel="icon" href="assets/logo.png" type="image/png">
+  <!-- Favicon: include a version token to force browsers to fetch the new image -->
+  <link rel="icon" href="assets/logo.png?v=1.0" type="image/png">
   <!-- Cache-busted CSS -->
   <link rel="stylesheet" href="styles.css?v=1.2">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +22,8 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="logo" href="/" aria-label="YAAB Impact home">
-        <!-- logo image; uses assets/logo.png -->
-        <img src="assets/logo.png" alt="YAAB Impact logo" class="site-logo">
+        <!-- logo image: add version token so the browser fetches updated file -->
+        <img src="assets/logo.png?v=1.0" alt="YAAB Impact logo" class="site-logo">
       </a>
 
       <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
