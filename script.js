@@ -1,10 +1,10 @@
 /*
-  Improved interactivity:
-  - AJAX submit to Formspree (works once you replace YOUR_FORM_ID)
-  - Form validation + success/error message handling
-  - Smooth scrolling already present
-  - Scroll-spy: add 'active' class to nav links as sections enter view
-  - Simple reveal animation using IntersectionObserver
+  Combined improved interactivity:
+  - Mobile nav toggle
+  - Smooth scrolling
+  - Scroll-spy to highlight nav links
+  - Reveal animations using IntersectionObserver
+  - Client-side validation + AJAX submit to Formspree (uses form action)
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,32 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scroll-spy: highlight nav links for visible sections
   const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('#main-nav a');
-  const observerOptions = { root: null, rootMargin: '0px', threshold: 0.45 };
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const id = entry.target.id;
-      const link = document.querySelector(`#main-nav a[href="#${id}"]`);
-      if (link) {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
+  if (sections.length && navLinks.length) {
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.45 };
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = document.querySelector(`#main-nav a[href="#${id}"]`);
+        if (link) {
+          if (entry.isIntersecting) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
         }
-      }
-    });
-  }, observerOptions);
-  sections.forEach(s => sectionObserver.observe(s));
+      });
+    }, observerOptions);
+    sections.forEach(s => sectionObserver.observe(s));
+  }
 
   // Reveal animation for elements with .reveal
   const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  reveals.forEach(r => revealObserver.observe(r));
+  if (reveals.length) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => revealObserver.observe(r));
+  }
 
   // Contact form: client validation + AJAX submission to Formspree
   const form = document.getElementById('contact-form');
@@ -70,7 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      formMessage.textContent = '';
+      if (formMessage) { formMessage.textContent = ''; formMessage.style.color = ''; }
+
       const nameInput = document.getElementById('name');
       const emailInput = document.getElementById('email');
       const messageInput = document.getElementById('message');
@@ -86,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (err) err.textContent = '';
       }
 
-      // Simple validations
+      // Validations
       if (!nameInput.value.trim()) setError(nameInput, 'Please enter your name.');
       else clearError(nameInput);
 
@@ -100,14 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (hasError) return;
 
-      // Disable submit while sending
       const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
 
       try {
-        // Replace YOUR_FORM_ID with your Formspree id when ready
-        const endpoint = form.action; // existing action (e.g. https://formspree.io/f/ABC123)
+        const endpoint = form.action; // e.g. https://formspree.io/f/ABC123
         const data = new FormData(form);
         const res = await fetch(endpoint, {
           method: 'POST',
@@ -116,19 +118,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (res.ok) {
           form.reset();
-          formMessage.style.color = 'green';
-          formMessage.textContent = 'Thanks — your message was sent.';
+          if (formMessage) {
+            formMessage.style.color = 'green';
+            formMessage.textContent = 'Thanks — your message was sent.';
+          }
         } else {
           const body = await res.json().catch(() => ({}));
-          formMessage.style.color = 'crimson';
-          formMessage.textContent = body.error || 'Sorry — there was a problem sending your message.';
+          if (formMessage) {
+            formMessage.style.color = 'crimson';
+            formMessage.textContent = body.error || 'Sorry — there was a problem sending your message.';
+          }
         }
       } catch (err) {
-        formMessage.style.color = 'crimson';
-        formMessage.textContent = 'Network error — please try again later.';
+        if (formMessage) {
+          formMessage.style.color = 'crimson';
+          formMessage.textContent = 'Network error — please try again later.';
+        }
       } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message';
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send message'; }
       }
     });
   }
