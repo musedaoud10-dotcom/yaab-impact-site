@@ -8,17 +8,22 @@
   <meta property="og:title" content="YAAB Impact">
   <meta property="og:description" content="Strategic coaching, product design and fundraising support for mission-driven teams.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.jpg">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <!-- Cache-busted stylesheet: bump the ?v= number when you update styles.css to force browsers to reload -->
-  <link rel="stylesheet" href="styles.css?v=1.0">
+  <!-- Cache-busted CSS -->
+  <link rel="stylesheet" href="styles.css?v=1.1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a href="/" class="logo">YAAB Impact</a>
+      <a class="logo" href="/">YAAB Impact</a>
+
       <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+
       <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
         <ul>
           <li><a href="#about">About</a></li>
@@ -31,62 +36,121 @@
   </header>
 
   <main id="main-content" role="main">
-    <section id="hero" class="hero">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-overlay"></div>
       <div class="container hero-inner">
-        <h1 class="reveal">We help social organisations multiply their impact</h1>
-        <p class="lead reveal">Strategic coaching, product design and fundraising support for mission-driven teams.</p>
-        <a class="btn reveal" href="#contact">Get in touch</a>
+        <div class="hero-copy reveal">
+          <h1>We help social organisations multiply their impact</h1>
+          <p class="lead">Strategic coaching, product design and fundraising support for mission-driven teams.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn ghost" href="#work">Our work</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="about" class="container section reveal">
-      <h2>About YAAB Impact</h2>
-      <p>We partner with organisations to design sustainable programmes and raise funds that scale.</p>
+      <div class="split">
+        <div class="split-left">
+          <h2>About YAAB Impact</h2>
+          <p>We partner with organisations to design sustainable programmes and raise funds that scale. We focus on practical solutions that increase reach, strengthen measurement and enable long-term sustainability.</p>
+          <p><strong>Services:</strong> Strategy, Design, Fundraising, Monitoring & Evaluation</p>
+        </div>
+        <div class="split-right">
+          <div class="card">
+            <h3>Strategy & Design</h3>
+            <p>Delivering programme design and service improvement for maximum impact.</p>
+          </div>
+          <div class="card">
+            <h3>Fundraising</h3>
+            <p>Grant readiness, pitch support and funder engagement strategies.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="work" class="container section">
-      <h2 class="reveal">Our Work</h2>
+      <h2 class="section-title reveal">Our Work</h2>
       <div class="cards">
-        <article class="card reveal"><h3>Strategy</h3><p>Programme design, monitoring &amp; evaluation.</p></article>
-        <article class="card reveal"><h3>Design</h3><p>Service &amp; product design for impact.</p></article>
-        <article class="card reveal"><h3>Fundraising</h3><p>Grant writing and investor readiness.</p></article>
+        <article class="card reveal">
+          <h3>Strategy</h3>
+          <p>Programme design, monitoring &amp; evaluation.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Design</h3>
+          <p>Service &amp; product design for impact.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Fundraising</h3>
+          <p>Grant writing and investor readiness.</p>
+        </article>
       </div>
     </section>
 
     <section id="impact" class="container section reveal">
       <h2>Impact</h2>
-      <p>We measure success by lives changed — examples include X beneficiaries reached.</p>
+      <p>We measure success by lives changed — examples include beneficiaries reached, programmes scaled and systems strengthened.</p>
+
+      <div class="testimonials">
+        <blockquote class="testimonial reveal">
+          <p>"YAAB helped us structure our programme and raise the funding to scale to new regions."</p>
+          <cite>— Partner organisation</cite>
+        </blockquote>
+        <blockquote class="testimonial reveal">
+          <p>"Their team brought clear thinking and practical tools that we used immediately."</p>
+          <cite>— Programme lead</cite>
+        </blockquote>
+      </div>
     </section>
 
     <section id="contact" class="container section reveal">
       <h2>Contact</h2>
+      <p>Reach out to discuss how we can help grow your impact.</p>
 
-      <!-- Replace YOUR_FORM_ID with your Formspree ID (when ready) -->
+      <!-- Formspree: replace YOUR_FORM_ID when ready -->
       <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="New contact from YAAB Impact site">
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required>
-          <span class="error" id="name-error" aria-live="polite"></span>
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+            <span class="error" id="name-error" aria-live="polite"></span>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="_replyto" type="email" required>
+            <span class="error" id="email-error" aria-live="polite"></span>
+          </div>
+          <div class="form-row full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+            <span class="error" id="message-error" aria-live="polite"></span>
+          </div>
         </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input id="email" name="_replyto" type="email" required>
-          <span class="error" id="email-error" aria-live="polite"></span>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Send message</button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
         </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
-          <span class="error" id="message-error" aria-live="polite"></span>
-        </div>
-        <button type="submit" class="btn">Send message</button>
-        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">YAAB Impact</p>
+        <p class="muted">Strategic coaching, product design & fundraising support.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container copyright">
       <p>&copy; YAAB Impact 2025</p>
     </div>
   </footer>
