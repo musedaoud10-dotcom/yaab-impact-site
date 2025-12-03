@@ -14,7 +14,18 @@ a{color:inherit}
 .container{max-width:var(--max-width);margin:0 auto;padding:28px}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .site-header{background:rgba(255,255,255,0.95);backdrop-filter:saturate(1.1) blur(4px);position:sticky;top:0;z-index:80;border-bottom:1px solid rgba(8,12,20,0.04)}
-.logo{font-weight:700;color:var(--primary);text-decoration:none;font-size:18px}
+/* Logo image style */
+.logo { display:inline-block; text-decoration:none; }
+.site-logo {
+  height:48px;            /* desktop logo height */
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.06));
+}
+.logo .text { font-weight:700;color:var(--primary); }
+
+/* Navigation */
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px}
 .nav a{text-decoration:none;color:var(--text);padding:10px;border-radius:8px}
 .nav a:hover{background:rgba(0,0,0,0.03)}
@@ -67,7 +78,7 @@ input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(1
 /* Focus and accessibility */
 :focus-visible{outline:3px solid rgba(43,147,72,0.18);outline-offset:4px;border-radius:8px}
 
-/* Responsive */
+/* Small tweaks for the cards on smaller screens */
 @media (max-width:1000px){
   .cards{grid-template-columns:repeat(2,1fr)}
   .testimonials{grid-template-columns:1fr}
@@ -81,4 +92,23 @@ input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(1
   .nav ul{flex-direction:column}
   .hero{min-height:360px;padding:40px 0}
   .hero h1{font-size:28px}
+  .site-logo { height:40px; }
 }
+
+/* Legacy base rules and helpers (ensures layout elements match earlier expectations) */
+:root{
+  --page-padding:24px;
+  --muted-2:#6b7280;
+  --accent-blue:#0a74ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+.container{padding-left:var(--page-padding);padding-right:var(--page-padding)}
+.header-inner{padding-top:8px;padding-bottom:8px}
+
+/* Utility for smaller cards in "work" section if needed */
+.card.small { padding:14px; }
+
+/* Ensure top skip link visible on keyboard focus */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:10px;top:10px;width:auto;height:auto;background:#fff;padding:8px;border-radius:6px;z-index:9999}
