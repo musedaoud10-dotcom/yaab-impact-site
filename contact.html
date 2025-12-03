@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact | YAAB Impact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Contact</h1>
+    <form id="contact-form" action="https://formspree.io/f/mzzngobl" method="POST">
+      <input type="hidden" name="_next" value="/thank-you.html">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="status"></p>
+    <script>
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('status');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var data = new FormData(form);
+        fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+          .then(function(r) { if (r.ok) { status.textContent = 'Thanks!'; form.reset(); } else { status.textContent = 'Error sending message.'; } })
+          .catch(function() { status.textContent = 'Network error. Please try again.'; });
+      });
+    </script>
+  </body>
+</html>
