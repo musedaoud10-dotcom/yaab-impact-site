@@ -9,9 +9,10 @@
   <meta property="og:description" content="Strategic coaching, product design and fundraising support for mission-driven teams.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/og-image.jpg">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Use the logo as the favicon (PNG works fine) -->
+  <link rel="icon" href="assets/logo.png" type="image/png">
   <!-- Cache-busted CSS -->
-  <link rel="stylesheet" href="styles.css?v=1.1">
+  <link rel="stylesheet" href="styles.css?v=1.2">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -20,7 +21,10 @@
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="logo" href="/">YAAB Impact</a>
+      <a class="logo" href="/" aria-label="YAAB Impact home">
+        <!-- logo image; uses assets/logo.png -->
+        <img src="assets/logo.png" alt="YAAB Impact logo" class="site-logo">
+      </a>
 
       <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
 
