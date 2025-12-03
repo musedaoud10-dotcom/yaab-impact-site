@@ -85,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
 
       try {
-        const endpoint = form.action; // keep the placeholder until you set real ID
+        // Use explicit endpoint with your real Formspree ID
+        const endpoint = 'https://formspree.io/f/mzzngobl';
         const data = new FormData(form);
         const res = await fetch(endpoint, {
           method: 'POST',
