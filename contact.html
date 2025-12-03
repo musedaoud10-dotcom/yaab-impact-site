@@ -36,8 +36,8 @@
       <textarea name="message" required rows="6" placeholder="How can we help?"></textarea>
     </label>
 
-    <!-- Fallback redirect for non-JS users -->
-    <input type="hidden" name="_next" value="/thank-you.html">
+    <!-- Fallback redirect for non-JS users (absolute URL) -->
+    <input type="hidden" name="_next" value="https://yaabimpact.org.uk/thank-you.html">
 
     <button id="submit-btn" type="submit">Send</button>
 
@@ -86,10 +86,10 @@
         if (response.ok) {
           showMessage('success', 'Message sent — thank you!');
           form.reset();
-          // Optionally redirect after 2.5 seconds so users still see thank-you page
+          // Use absolute URL and longer delay (4s) before redirect
           setTimeout(function () {
-            window.location.href = '/thank-you.html';
-          }, 2500);
+            window.location.href = 'https://yaabimpact.org.uk/thank-you.html';
+          }, 4000);
         } else {
           response.json().then(function (data) {
             showMessage('error', data.error || 'There was a problem sending your message.');
