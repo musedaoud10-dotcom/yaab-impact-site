@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Workshops — YAAB Impact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free weekly cooking workshops at Community Hub. Learn economical, nutritious meal preparation in a hands-on environment.">
+  <meta property="og:title" content="Workshops — YAAB Impact">
+  <meta property="og:description" content="Free weekly cooking workshops. Learn economical, nutritious meal preparation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.png?v=1.0" type="image/png">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=1.2">
+  <link rel="stylesheet" href="workshops-watermark.css?v=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Preload workshop images -->
+  <link rel="preload" as="image" href="assets/workshop-bg/img1.svg">
+  <link rel="preload" as="image" href="assets/workshop-bg/img2.svg">
+</head>
+<body>
+  <!-- Site-wide watermark -->
+  <img src="assets/logo-watermark.svg" alt="" class="site-watermark" aria-hidden="true">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="/" aria-label="YAAB Impact home">
+        <img src="assets/logo.png?v=1.0" alt="YAAB Impact logo" class="site-logo">
+      </a>
+
+      <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/workshops.html" aria-current="page">Workshops</a></li>
+          <li><a href="/#impact">Impact</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="workshops-hero" aria-label="Workshops introduction">
+      <div class="container">
+        <h1>Cooking Workshops</h1>
+        <p class="lead">Join our free weekly workshops and learn how to prepare nutritious, budget-friendly meals. All sessions are held at the Community Hub with hands-on guidance.</p>
+      </div>
+    </section>
+
+    <!-- View Toggle and Filters -->
+    <section class="container" aria-label="Workshop filters">
+      <div class="view-toggle" role="group" aria-label="View options">
+        <button class="view-toggle-btn active" data-view="grid" aria-pressed="true">Grid View</button>
+        <button class="view-toggle-btn" data-view="list" aria-pressed="false">Calendar View</button>
+      </div>
+      
+      <div class="month-filter" id="month-filter" role="group" aria-label="Filter by month">
+        <!-- Populated by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Workshops Grid -->
+    <section class="container section" aria-label="Workshop sessions">
+      <div class="workshops-grid" id="workshops-grid">
+        <!-- Populated by JavaScript -->
+      </div>
+      
+      <div class="workshops-list" id="workshops-list" role="list">
+        <!-- Populated by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">YAAB Impact</p>
+        <p class="muted">Strategic coaching, product design & fundraising support.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/workshops.html">Workshops</a></li>
+          <li><a href="/#impact">Impact</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container copyright">
+      <p>&copy; YAAB Impact 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script src="workshops.js" defer></script>
+</body>
+</html>

@@ -13,10 +13,14 @@
   <link rel="icon" href="assets/logo.png?v=1.0" type="image/png">
   <!-- Cache-busted CSS -->
   <link rel="stylesheet" href="styles.css?v=1.2">
+  <link rel="stylesheet" href="workshops-watermark.css?v=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Site-wide watermark -->
+  <img src="assets/logo-watermark.svg" alt="" class="site-watermark" aria-hidden="true">
+
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header" role="banner">
@@ -32,6 +36,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="/workshops.html">Workshops</a></li>
           <li><a href="#impact">Impact</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -108,6 +113,35 @@
       </div>
     </section>
 
+    <!-- Workshops Preview Section -->
+    <section id="workshops" class="workshops-preview reveal">
+      <div class="container">
+        <h2>Upcoming Workshops</h2>
+        <p class="section-intro">Join our free weekly cooking workshops at the Community Hub. Learn practical tips for preparing nutritious, budget-friendly meals.</p>
+        <div class="workshops-preview-grid">
+          <article class="workshop-card">
+            <img class="workshop-card-image" src="assets/workshop-bg/img1.svg" alt="Workshop background" loading="lazy">
+            <div class="workshop-card-content">
+              <h3 class="workshop-card-title">Economical Cooking</h3>
+              <div class="workshop-card-meta">
+                <span>📅 Weekly on Saturdays</span>
+                <span>🕐 10:00 AM UTC (2h)</span>
+                <span>📍 Community Hub</span>
+              </div>
+              <p class="workshop-card-excerpt">Hands-on sessions covering meal planning, smart shopping, and delicious budget-friendly recipes.</p>
+              <div class="workshop-card-footer">
+                <span class="workshop-card-price">Free</span>
+                <span class="workshop-card-capacity">Capacity: 10</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="view-all">
+          <a href="/workshops.html" class="btn primary">View All 12 Sessions →</a>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="container section reveal">
       <h2>Contact</h2>
       <p>Reach out to discuss how we can help grow your impact.</p>
@@ -149,6 +183,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="/workshops.html">Workshops</a></li>
           <li><a href="#impact">Impact</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
