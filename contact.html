@@ -15,9 +15,15 @@
     .status.success { background:#e6ffed; color:#064e3b; border:1px solid #bbf7d0; display:block; }
     .status.error { background:#fff1f2; color:#7f1d1d; border:1px solid #fecaca; display:block; }
     button[disabled] { opacity: .6; cursor: not-allowed; }
+    /* Watermark */
+    .site-watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 45vmin; height: auto; opacity: 0.06; pointer-events: none; z-index: -1; }
+    @media (max-width: 720px) { .site-watermark { display: none; } }
   </style>
 </head>
 <body>
+  <!-- Site-wide watermark -->
+  <img src="assets/logo-watermark.svg" alt="" class="site-watermark" aria-hidden="true">
+  
   <h1>Contact</h1>
 
   <form id="contact-form" action="https://formspree.io/f/mzzngobl" method="POST" novalidate>
