@@ -9,6 +9,13 @@
   'use strict';
 
   // ============================================
+  // CONSTANTS
+  // ============================================
+  
+  const MODAL_FOCUS_DELAY_MS = 100;
+  const SUCCESS_AUTO_CLOSE_DELAY_MS = 4000; // 4 seconds for accessibility
+
+  // ============================================
   // WORKSHOP DATA GENERATION
   // ============================================
   
@@ -266,6 +273,7 @@
           </div>
           <div class="modal-footer">
             <button type="submit" form="workshop-signup-form" class="modal-submit">Submit Registration</button>
+            <div id="modal-error" class="modal-error" role="alert" aria-live="polite" style="display: none;"></div>
           </div>
           
           <div class="modal-success" id="signup-success" style="display: none;">
@@ -292,10 +300,15 @@
     const modalTitle = document.getElementById('modal-title');
     const successDiv = document.getElementById('signup-success');
     const formElements = modal.querySelectorAll('.modal-body, .modal-footer');
+    const errorDiv = document.getElementById('modal-error');
     
     // Reset form state
     form.reset();
     clearFormErrors();
+    if (errorDiv) {
+      errorDiv.textContent = '';
+      errorDiv.style.display = 'none';
+    }
     titleField.value = workshop.title;
     modalTitle.textContent = `Sign Up: ${workshop.title}`;
     
@@ -310,7 +323,7 @@
     // Focus first input
     setTimeout(() => {
       document.getElementById('signup-name').focus();
-    }, 100);
+    }, MODAL_FOCUS_DELAY_MS);
   }
 
   function closeModal() {
@@ -328,10 +341,10 @@
     formElements.forEach(el => el.style.display = 'none');
     successDiv.style.display = 'block';
     
-    // Auto-close after 3 seconds
+    // Auto-close after delay (longer for accessibility)
     setTimeout(() => {
       closeModal();
-    }, 3000);
+    }, SUCCESS_AUTO_CLOSE_DELAY_MS);
   }
 
   // ============================================
@@ -387,10 +400,27 @@
   // AJAX FORM SUBMISSION
   // ============================================
 
+  function showModalError(message) {
+    const errorDiv = document.getElementById('modal-error');
+    if (errorDiv) {
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+    }
+  }
+
+  function hideModalError() {
+    const errorDiv = document.getElementById('modal-error');
+    if (errorDiv) {
+      errorDiv.textContent = '';
+      errorDiv.style.display = 'none';
+    }
+  }
+
   async function submitForm(form) {
     const submitBtn = document.querySelector('.modal-submit');
     const originalText = submitBtn.textContent;
     
+    hideModalError();
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
     
@@ -408,10 +438,10 @@
         showSuccess();
       } else {
         const data = await response.json().catch(() => ({}));
-        alert(data.error || 'Sorry, there was a problem submitting your registration. Please try again.');
+        showModalError(data.error || 'Sorry, there was a problem submitting your registration. Please try again.');
       }
     } catch (error) {
-      alert('Network error. Please check your connection and try again.');
+      showModalError('Network error. Please check your connection and try again.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;

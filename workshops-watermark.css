@@ -445,6 +445,17 @@
   padding: 0 24px 24px;
 }
 
+.modal-error {
+  margin-top: 12px;
+  padding: 12px;
+  background: #fff1f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #7f1d1d;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
 .modal-submit {
   width: 100%;
   background: var(--primary);
