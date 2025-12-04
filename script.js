@@ -341,7 +341,9 @@ END:VCALENDAR`;
   // Initialize home page workshop preview
   const homeWorkshops = document.getElementById('home-workshops');
   if (homeWorkshops) {
-    const previewWorkshops = generateWorkshops(3); // Show first 3 workshops
+    // Always populate allWorkshops so modal can find workshop data
+    allWorkshops = generateWorkshops(14);
+    const previewWorkshops = allWorkshops.slice(0, 3); // Show first 3 workshops
     renderWorkshops(previewWorkshops, 'home-workshops');
   }
 
