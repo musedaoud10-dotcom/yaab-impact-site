@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Workshops — YAAB Impact</title>
+
+  <!-- Link your main stylesheet; also include the workshops CSS (or merge into your main styles) -->
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/workshops-watermark.css">
+</head>
+<body>
+  <!-- SITE-WIDE WATERMARK SNIPPET
+       Insert this snippet as the first child of <body> in your header include/template
+       (or place it manually on every page) -->
+  <div class="site-watermark" aria-hidden="true"></div>
+
+  <!-- Your existing header (nav etc.) -->
+  <header><!-- include your existing header here --></header>
+
+  <main class="main-content">
+    <section class="workshops-wrap" aria-labelledby="workshops-heading">
+      <div class="workshops-hero">
+        <div>
+          <h1 id="workshops-heading">Free Weekly Workshops — Cook Economically</h1>
+          <p>Weekly hands-on sessions teaching low-cost meals, batch-cooking and smart shopping tips to eat well on a budget. Capacity: 10. In-person at Community Hub. Free.</p>
+        </div>
+        <div>
+          <a href="/contact.html" class="btn">Contact us</a>
+        </div>
+      </div>
+
+      <div id="workshop-grid" class="workshops-grid" aria-live="polite">
+        <!-- JS populates workshop cards here -->
+      </div>
+
+      <h2 style="margin-top:1.5rem;">Upcoming sessions</h2>
+      <div id="calendar-controls" style="margin-bottom:8px;">
+        <label for="month-filter">Filter by month</label>
+        <select id="month-filter" aria-label="Filter workshops by month"></select>
+      </div>
+      <div id="calendar-list" class="calendar-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer><!-- include your existing footer here --></footer>
+
+  <!-- Existing site JS (keep this) -->
+  <script src="/script.js"></script>
+
+  <!-- Workshops JS (or append the contents into script.js if you prefer a single file) -->
+  <script src="/workshops.js"></script>
+</body>
+</html>
