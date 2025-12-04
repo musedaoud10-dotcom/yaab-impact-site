@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="white">
+  <!-- Simplified YAAB Impact watermark: plant/tree in arch shape -->
+  <!-- Arch outline -->
+  <path d="M30 160 L30 80 C30 35 100 0 100 0 C100 0 170 35 170 80 L170 160" 
+        fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Bottom horizontal lines of arch -->
+  <line x1="30" y1="160" x2="30" y2="180" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <line x1="170" y1="160" x2="170" y2="180" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Main stem -->
+  <line x1="100" y1="180" x2="100" y2="50" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Leaves - bottom pair (largest) -->
+  <ellipse cx="70" cy="140" rx="22" ry="12" transform="rotate(-35 70 140)"/>
+  <ellipse cx="130" cy="140" rx="22" ry="12" transform="rotate(35 130 140)"/>
+  
+  <!-- Leaves - middle pair -->
+  <ellipse cx="75" cy="105" rx="18" ry="10" transform="rotate(-40 75 105)"/>
+  <ellipse cx="125" cy="105" rx="18" ry="10" transform="rotate(40 125 105)"/>
+  
+  <!-- Leaves - upper pair -->
+  <ellipse cx="82" cy="75" rx="14" ry="8" transform="rotate(-45 82 75)"/>
+  <ellipse cx="118" cy="75" rx="14" ry="8" transform="rotate(45 118 75)"/>
+  
+  <!-- Top leaf/bud -->
+  <ellipse cx="100" cy="48" rx="6" ry="14" transform="rotate(0 100 48)"/>
+  
+  <!-- Small decorative lines on leaves (veins) -->
+  <line x1="100" y1="48" x2="100" y2="38" stroke="white" stroke-width="1.5" opacity="0.7"/>
+</svg>
