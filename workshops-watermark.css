@@ -1,0 +1,64 @@
+/* Watermark + workshops + modal styles
+   Merge these rules into your main stylesheet if you prefer. */
+
+/* --- Watermark (site-wide) --- */
+/* NOTE: Update the path to .svg if you upload an SVG instead of PNG */
+.site-watermark {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* behind content */
+  background-image: url('/assets/logo-watermark.png'); /* <-- place your uploaded logo here (PNG) */
+  background-repeat: no-repeat;
+  background-position: center 18%;
+  background-size: 45vmin;
+  opacity: 0.06;
+  transition: opacity .25s ease;
+}
+
+/* If you uploaded an SVG and prefer that URL, replace the line above with:
+   background-image: url('/assets/logo-watermark.svg'); */
+
+@media (max-width: 720px) {
+  .site-watermark { display: none; }
+}
+
+/* Ensure content stacks above watermark */
+header, .main-content, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Workshops layout --- */
+.workshops-wrap { max-width: 1100px; margin: 2.5rem auto; padding: 2rem; }
+.workshops-hero { display:flex; gap:1.5rem; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
+.workshops-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; }
+.workshop-card {
+  background: #fff; border-radius:8px; overflow:hidden; box-shadow: 0 6px 18px rgba(10,10,10,.06);
+  display:flex; flex-direction:column; min-height:220px;
+}
+.workshop-card .thumb { height:140px; background-size:cover; background-position:center; }
+.workshop-card .body { padding:1rem; flex:1; display:flex; flex-direction:column; }
+.workshop-card h3 { margin:0 0 .4rem; font-size:1.05rem; }
+.workshop-card p.meta { font-size:.9rem; color:#666; margin:0 0 .6rem; }
+.workshop-card .actions { margin-top:auto; display:flex; gap:8px; align-items:center; }
+.btn { display:inline-block; background:#0b8457; color:#fff; padding:.5rem .9rem; border-radius:6px; text-decoration:none; border:none; cursor:pointer; }
+.btn.ghost { background:transparent; border:1px solid #ddd; color:#333; padding:.45rem .8rem; }
+.workshop-card:hover { transform: translateY(-6px); transition: transform .18s ease; }
+
+/* Calendar list view */
+.calendar-list { margin-top:1rem; display:flex; flex-direction:column; gap:8px; }
+.calendar-item { padding:.8rem 1rem; background:#fbfbfb; border-radius:6px; display:flex; justify-content:space-between; align-items:center; }
+.calendar-item .meta { color:#333; }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  background: rgba(8,10,12,0.45); z-index:9999;
+}
+.modal-card { background:#fff; border-radius:8px; width:min(720px,95vw); max-height:90vh; overflow:auto; padding:1rem 1.25rem; box-shadow:0 10px 50px rgba(2,6,23,.5); position:relative; }
+.modal-close { position:absolute; right:14px; top:10px; background:transparent; border:none; font-size:1.6rem; cursor:pointer; }
+#signup-status { margin-top:.6rem; font-weight:600; }
+
+/* small utility */
+.workshop-meta { font-size:0.95rem; color:#333; margin-top:0.3rem; }
