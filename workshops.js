@@ -7,11 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
   
   /**
    * Get the next upcoming Saturday at 10:00 UTC
+   * Note: If today is Saturday, this returns next Saturday (7 days away)
+   * to ensure workshops are scheduled in the future.
    */
   function getNextSaturday() {
     const now = new Date();
     const day = now.getUTCDay();
-    const daysUntilSaturday = (6 - day + 7) % 7 || 7; // If today is Saturday, get next Saturday
+    // When day is Saturday (6): (6-6+7)%7 = 0, then 0||7 = 7 (next Saturday)
+    // For other days: calculates days until Saturday
+    const daysUntilSaturday = (6 - day + 7) % 7 || 7;
     const nextSaturday = new Date(now);
     nextSaturday.setUTCDate(now.getUTCDate() + daysUntilSaturday);
     nextSaturday.setUTCHours(10, 0, 0, 0);
