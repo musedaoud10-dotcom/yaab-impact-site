@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" fill="#ffffff">
+  <!-- Arched window frame -->
+  <path d="M40 140 L40 240 L160 240 L160 140 Q160 60 100 40 Q40 60 40 140 Z" 
+        fill="none" stroke="#ffffff" stroke-width="6"/>
+  
+  <!-- Plant stem -->
+  <line x1="100" y1="220" x2="100" y2="80" stroke="#ffffff" stroke-width="4"/>
+  
+  <!-- Bottom leaves (larger, lowest pair) -->
+  <ellipse cx="70" cy="180" rx="25" ry="12" transform="rotate(-35 70 180)" fill="#ffffff"/>
+  <ellipse cx="130" cy="180" rx="25" ry="12" transform="rotate(35 130 180)" fill="#ffffff"/>
+  
+  <!-- Middle leaves -->
+  <ellipse cx="75" cy="140" rx="22" ry="10" transform="rotate(-40 75 140)" fill="#ffffff"/>
+  <ellipse cx="125" cy="140" rx="22" ry="10" transform="rotate(40 125 140)" fill="#ffffff"/>
+  
+  <!-- Top leaves (smaller, highest pair) -->
+  <ellipse cx="82" cy="105" rx="18" ry="8" transform="rotate(-45 82 105)" fill="#ffffff"/>
+  <ellipse cx="118" cy="105" rx="18" ry="8" transform="rotate(45 118 105)" fill="#ffffff"/>
+  
+  <!-- Top leaf (single) -->
+  <ellipse cx="100" cy="75" rx="8" ry="16" fill="#ffffff"/>
+  
+  <!-- YAAB text -->
+  <text x="100" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="28" fill="#ffffff">YAAB</text>
+  
+  <!-- IMPACT text -->
+  <text x="100" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="18" letter-spacing="2" fill="#ffffff">IMPACT</text>
+</svg>
