@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         id: `workshop-week-${i + 1}`,
         week: i + 1,
         title: `${WORKSHOP_CONFIG.title} — Week ${i + 1}`,
-        topic: WEEK_TOPICS[i],
+        topic: WEEK_TOPICS[i % WEEK_TOPICS.length] || `Week ${i + 1}`,
         startDate: eventDate,
         endDate: endDate,
         location: WORKSHOP_CONFIG.location,
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Format date for ICS file (YYYYMMDDTHHMMSSZ)
    */
   function formatICSDate(date) {
-    return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    return date.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
   }
 
   /**
