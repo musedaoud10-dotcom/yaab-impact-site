@@ -13,10 +13,16 @@
   <link rel="icon" href="assets/logo.png?v=1.0" type="image/png">
   <!-- Cache-busted CSS -->
   <link rel="stylesheet" href="styles.css?v=1.2">
+  <link rel="stylesheet" href="workshops-watermark.css?v=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Site-wide Watermark -->
+  <div class="site-watermark" aria-hidden="true">
+    <img src="assets/logo-watermark.svg" alt="">
+  </div>
+
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header" role="banner">
@@ -32,6 +38,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="/workshops.html">Workshops</a></li>
           <li><a href="#impact">Impact</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -92,6 +99,18 @@
       </div>
     </section>
 
+    <section id="workshops" class="workshops-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Upcoming Workshops</h2>
+          <a class="btn ghost" href="/workshops.html">View all workshops</a>
+        </div>
+        <div id="workshops-preview" class="workshops-preview">
+          <!-- Workshop cards will be dynamically inserted here by workshops.js -->
+        </div>
+      </div>
+    </section>
+
     <section id="impact" class="container section reveal">
       <h2>Impact</h2>
       <p>We measure success by lives changed — examples include beneficiaries reached, programmes scaled and systems strengthened.</p>
@@ -149,6 +168,7 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="/workshops.html">Workshops</a></li>
           <li><a href="#impact">Impact</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -160,5 +180,6 @@
   </footer>
 
   <script src="script.js" defer></script>
+  <script src="workshops.js" defer></script>
 </body>
 </html>

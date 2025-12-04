@@ -1,0 +1,524 @@
+/* ===========================================
+   YAAB Impact - Workshops & Watermark Styles
+   =========================================== */
+
+/* -------------------------
+   Site-wide Watermark
+   ------------------------- */
+.site-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  max-width: 600px;
+  height: auto;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.site-watermark img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hide watermark on screens smaller than 720px */
+@media (max-width: 719px) {
+  .site-watermark {
+    display: none;
+  }
+}
+
+/* -------------------------
+   Workshop Cards Grid
+   ------------------------- */
+.workshops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.workshop-card {
+  background: var(--card-bg, #ffffff);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(12, 20, 30, 0.08);
+  border: 1px solid rgba(10, 12, 14, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.workshop-card:hover,
+.workshop-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(12, 20, 30, 0.15);
+}
+
+.workshop-card-image {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.workshop-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.workshop-card:hover .workshop-card-image img {
+  transform: scale(1.05);
+}
+
+.workshop-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--primary, #2b9348);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.workshop-card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.workshop-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--text, #0b1220);
+  line-height: 1.3;
+}
+
+.workshop-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--muted, #6b7280);
+}
+
+.workshop-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workshop-card-meta svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.workshop-card-description {
+  font-size: 14px;
+  color: var(--muted, #6b7280);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.workshop-card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.workshop-card-actions .btn {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 16px;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid var(--primary, #2b9348);
+  color: var(--primary, #2b9348);
+}
+
+.btn.secondary:hover {
+  background: var(--primary, #2b9348);
+  color: #fff;
+}
+
+/* -------------------------
+   Calendar/List View Toggle
+   ------------------------- */
+.view-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  display: flex;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.view-toggle button {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted, #6b7280);
+  transition: background 0.2s, color 0.2s;
+}
+
+.view-toggle button.active {
+  background: var(--primary, #2b9348);
+  color: #fff;
+}
+
+.view-toggle button:hover:not(.active) {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Month Filter */
+.month-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.month-filter label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.month-filter select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 12, 14, 0.12);
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* -------------------------
+   Calendar List View
+   ------------------------- */
+.workshops-list {
+  display: none;
+}
+
+.workshops-list.active {
+  display: block;
+}
+
+.workshops-grid.active {
+  display: grid;
+}
+
+.workshops-grid:not(.active) {
+  display: none;
+}
+
+.workshop-list-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(12, 20, 30, 0.06);
+  border: 1px solid rgba(10, 12, 14, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workshop-list-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(12, 20, 30, 0.1);
+}
+
+.workshop-list-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--primary, #2b9348), #1e6b33);
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.workshop-list-date .day {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.workshop-list-date .month {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+.workshop-list-info {
+  flex: 1;
+}
+
+.workshop-list-info h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.workshop-list-info p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted, #6b7280);
+}
+
+.workshop-list-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.workshop-list-actions .btn {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+/* -------------------------
+   Modal Styles
+   ------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(10, 12, 14, 0.08);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  color: var(--muted, #6b7280);
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--text, #0b1220);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body .form-row {
+  margin-bottom: 16px;
+}
+
+.modal-body label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.modal-body input,
+.modal-body textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 12, 14, 0.12);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+  outline: none;
+  border-color: var(--primary, #2b9348);
+  box-shadow: 0 0 0 3px rgba(43, 147, 72, 0.15);
+}
+
+.modal-footer {
+  padding: 16px 24px 24px;
+}
+
+.modal-footer .btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+}
+
+/* Success State */
+.modal-success {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.modal-success svg {
+  width: 64px;
+  height: 64px;
+  color: var(--primary, #2b9348);
+  margin-bottom: 16px;
+}
+
+.modal-success h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.modal-success p {
+  color: var(--muted, #6b7280);
+  margin: 0;
+}
+
+/* -------------------------
+   Homepage Workshops Section
+   ------------------------- */
+.workshops-section {
+  background: linear-gradient(180deg, #f0f7f2, var(--bg, #f7faf6));
+  padding: 60px 0;
+}
+
+.workshops-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.workshops-section h2 {
+  margin: 0;
+}
+
+.workshops-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* -------------------------
+   Page Header
+   ------------------------- */
+.page-header {
+  background: linear-gradient(135deg, rgba(43, 147, 72, 0.1), rgba(19, 62, 39, 0.05));
+  padding: 60px 0 40px;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  margin: 0 0 12px;
+  font-size: 36px;
+}
+
+.page-header .lead {
+  margin: 0;
+  max-width: 600px;
+}
+
+/* -------------------------
+   Responsive Adjustments
+   ------------------------- */
+@media (max-width: 800px) {
+  .workshops-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .workshop-list-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .workshop-list-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .view-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .view-toggle {
+    justify-content: center;
+  }
+  
+  .page-header h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .workshop-card-actions {
+    flex-direction: column;
+  }
+  
+  .modal {
+    width: 95%;
+    margin: 10px;
+  }
+}

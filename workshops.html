@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Workshops — YAAB Impact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free weekly workshops on impact measurement, grant writing, and programme design. Join our in-person sessions at Community Hub.">
+  <meta property="og:title" content="Workshops — YAAB Impact">
+  <meta property="og:description" content="Free weekly workshops on impact measurement, grant writing, and programme design.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <link rel="icon" href="assets/logo.png?v=1.0" type="image/png">
+  <link rel="stylesheet" href="styles.css?v=1.2">
+  <link rel="stylesheet" href="workshops-watermark.css?v=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Site-wide Watermark -->
+  <div class="site-watermark" aria-hidden="true">
+    <img src="assets/logo-watermark.svg" alt="">
+  </div>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="/" aria-label="YAAB Impact home">
+        <img src="assets/logo.png?v=1.0" alt="YAAB Impact logo" class="site-logo">
+      </a>
+
+      <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+
+      <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/workshops.html" aria-current="page">Workshops</a></li>
+          <li><a href="/#impact">Impact</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="page-header">
+      <div class="container">
+        <h1 class="reveal">Free Weekly Workshops</h1>
+        <p class="lead reveal">Join our in-person workshops every Saturday at 10:00 UTC. Learn practical skills in impact measurement, grant writing, programme design, and more. All sessions are free with limited capacity.</p>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="view-controls">
+        <div class="view-toggle">
+          <button id="view-grid" class="active" aria-pressed="true">Grid View</button>
+          <button id="view-list" aria-pressed="false">List View</button>
+        </div>
+        <div class="month-filter">
+          <label for="month-filter">Filter by month:</label>
+          <select id="month-filter">
+            <option value="all">All months</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Grid View -->
+      <div id="workshops-grid" class="workshops-grid active">
+        <!-- Workshop cards will be dynamically inserted here -->
+      </div>
+
+      <!-- List View -->
+      <div id="workshops-list" class="workshops-list">
+        <!-- Workshop list items will be dynamically inserted here -->
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>About Our Workshops</h2>
+      <div class="split">
+        <div class="split-left">
+          <p>Our free weekly workshops are designed for social organisations looking to strengthen their impact measurement, fundraising, and programme design capabilities.</p>
+          <p>Each session runs for approximately 2 hours and includes practical exercises, group discussions, and take-away resources. All workshops are held in-person at our Community Hub location.</p>
+        </div>
+        <div class="split-right">
+          <div class="card">
+            <h3>What to Expect</h3>
+            <ul>
+              <li>Interactive, hands-on learning</li>
+              <li>Small groups (max 10 participants)</li>
+              <li>Experienced facilitators</li>
+              <li>Networking opportunities</li>
+              <li>Practical tools and templates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">YAAB Impact</p>
+        <p class="muted">Strategic coaching, product design & fundraising support.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#work">Work</a></li>
+          <li><a href="/workshops.html">Workshops</a></li>
+          <li><a href="/#impact">Impact</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container copyright">
+      <p>&copy; YAAB Impact 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script src="workshops.js" defer></script>
+</body>
+</html>
