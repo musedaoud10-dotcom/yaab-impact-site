@@ -1,164 +1,434 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>YAAB Impact</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="YAAB Impact — strategic coaching, product design and fundraising support for mission-driven teams.">
-  <meta property="og:title" content="YAAB Impact">
-  <meta property="og:description" content="Strategic coaching, product design and fundraising support for mission-driven teams.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/og-image.jpg">
-  <!-- Favicon: include a version token to force browsers to fetch the new image -->
-  <link rel="icon" href="assets/logo.png?v=1.0" type="image/png">
-  <!-- Cache-busted CSS -->
-  <link rel="stylesheet" href="styles.css?v=1.2">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yaab Impact – Community Food CIC</title>
+  <meta name="description" content="Yaab Impact is a community food CIC based in Bristol, supporting local people with good food, dignity and community." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="logo" href="/" aria-label="YAAB Impact home">
-        <!-- logo image: add version token so the browser fetches updated file -->
-        <img src="assets/logo.png?v=1.0" alt="YAAB Impact logo" class="site-logo">
+  <!-- ====== HEADER / NAV ====== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#home" class="brand">
+        <!-- Replace src with your actual logo if you have one -->
+        <!-- <img src="assets/yaab-logo.png" alt="Yaab Impact logo" class="brand-logo" /> -->
+        <span class="brand-mark">YI</span>
+        <span class="brand-text">Yaab Impact</span>
       </a>
 
-      <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
 
-      <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#contact">Contact</a></li>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#mission">Our mission</a></li>
+          <li><a href="#what-we-do">What we do</a></li>
+          <li><a href="#get-help">Get help</a></li>
+          <li><a href="#get-involved">Get involved</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#contact" class="nav-cta-link">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" role="main">
-    <section class="hero" aria-label="Hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-inner">
-        <div class="hero-copy reveal">
-          <h1>We help social organisations multiply their impact</h1>
-          <p class="lead">Strategic coaching, product design and fundraising support for mission-driven teams.</p>
-          <div class="hero-cta">
-            <a class="btn primary" href="#contact">Get in touch</a>
-            <a class="btn ghost" href="#work">Our work</a>
+  <main id="main">
+    <!-- ====== HERO / HOME ====== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Community Food CIC • Bristol</p>
+          <h1>Good food, dignity and community for everyone.</h1>
+          <p class="hero-subtitle">
+            Yaab Impact is a community food CIC based in Bristol. We work with local people, community groups and partners to make sure everyone can access good food,
+            feel connected, and be part of solutions that last.
+          </p>
+          <div class="hero-actions">
+            <a href="#get-help" class="btn btn-primary">I need food support</a>
+            <a href="#get-involved" class="btn btn-secondary">I want to help</a>
+          </div>
+          <p class="hero-footnote">
+            From surplus food and community meals to education and advocacy – we’re here to tackle food insecurity with care and respect.
+          </p>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-card">
+            <h2>What we do in a snapshot</h2>
+            <ul class="hero-card-list">
+              <li><strong>Community food support</strong> – low-cost and free food options.</li>
+              <li><strong>Warm, welcoming spaces</strong> – shared meals and drop-ins.</li>
+              <li><strong>Food skills & growing</strong> – cooking, nutrition and growing together.</li>
+              <li><strong>Partnerships & advocacy</strong> – working for a fairer local food system.</li>
+            </ul>
+            <p class="hero-card-foot">
+              Want to work with us? <a href="#contact">Get in touch</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-blob" aria-hidden="true"></div>
+    </section>
+
+    <!-- ====== OUR MISSION ====== -->
+    <section id="mission" class="section section-alt">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">Our mission</p>
+          <h2>A Bristol where no one has to face hunger alone.</h2>
+          <p>
+            Rising living costs, low incomes and insecure work mean too many people in our city are having to choose between heating and eating. Food is about
+            much more than survival – it’s about culture, connection and dignity.
+          </p>
+          <p>
+            Yaab Impact exists to make sure everyone in our communities can access healthy, affordable and culturally familiar food, in places where they feel
+            welcomed and respected. We work alongside local residents, volunteers and partners to build a food system that is fairer and more resilient.
+          </p>
+        </div>
+
+        <div>
+          <h3>Our manifesto</h3>
+          <p>
+            We believe that access to good food is a basic right, not a privilege. Our work is shaped by a few simple commitments:
+          </p>
+          <ul class="check-list">
+            <li><strong>Dignity first:</strong> people are neighbours, not numbers.</li>
+            <li><strong>Community led:</strong> we listen first and build with, not for.</li>
+            <li><strong>Food justice:</strong> we tackle the causes of hunger, not just the symptoms.</li>
+            <li><strong>Collaboration:</strong> we share knowledge, resources and power to make change last.</li>
+          </ul>
+          <p>
+            Every food parcel, community meal and workshop is a step towards a city where everyone can eat well and feel they belong.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WHAT WE DO ====== -->
+    <section id="what-we-do" class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">What we do</p>
+          <h2>Practical food support today, long-term change for tomorrow.</h2>
+          <p class="section-subtitle">
+            Yaab Impact connects surplus food, community spaces and local knowledge to support people in the short term and build a stronger local food system over time.
+          </p>
+        </header>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Community food projects</h3>
+            <p>
+              We help run and support community food initiatives – from food pantries and pop-up markets to solidarity veg and grocery schemes.
+            </p>
+            <ul>
+              <li>Low-cost and free food options</li>
+              <li>Surplus food redistributed locally</li>
+              <li>Partnerships with local suppliers and growers</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Shared meals & warm spaces</h3>
+            <p>
+              Food tastes better together. We create welcoming spaces where people can share a hot meal, connect with neighbours and access support if needed.
+            </p>
+            <ul>
+              <li>Community meals and socials</li>
+              <li>School-holiday and out-of-term food</li>
+              <li>Warm, family-friendly spaces</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Skills, growing & education</h3>
+            <p>
+              We support people to grow, cook and enjoy food with confidence – and to shape local food projects that reflect their cultures and tastes.
+            </p>
+            <ul>
+              <li>Cook-along sessions and recipe shares</li>
+              <li>Growing projects and food education</li>
+              <li>Peer learning and youth leadership</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== OUR APPROACH ====== -->
+    <section id="approach" class="section section-alt">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">How we work</p>
+          <h2>Compassionate, collaborative, rooted in community.</h2>
+          <p>
+            Yaab Impact is a Community Interest Company. Any surplus we create is reinvested into our work – supporting people who are most impacted by food
+            insecurity and related challenges.
+          </p>
+          <p>
+            We work across neighbourhoods, supporting local groups, faith communities, schools and residents to strengthen what already exists and create new projects
+            where there are gaps.
+          </p>
+        </div>
+
+        <div>
+          <div class="pill-group">
+            <span class="pill">Compassionate</span>
+            <span class="pill">Collaborative</span>
+            <span class="pill">Inclusive</span>
+            <span class="pill">Practical</span>
+          </div>
+          <ul class="check-list">
+            <li><strong>Compassionate:</strong> wellbeing and dignity come first.</li>
+            <li><strong>Collaborative:</strong> we bring people together to find solutions.</li>
+            <li><strong>Inclusive:</strong> we celebrate cultures, languages and lived experience.</li>
+            <li><strong>Evidence-led:</strong> we listen, learn and adapt based on what communities tell us.</li>
+          </ul>
+          <p>
+            We’re always looking for new partners – from local community leaders to businesses that want to share resources or volunteers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== GET HELP ====== -->
+    <section id="get-help" class="section help-section">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Get help with food</p>
+          <h2>If you’re struggling to afford food, you’re not alone.</h2>
+          <p class="section-subtitle">
+            We know it can feel hard to ask for help. Our aim is to make support as simple, respectful and welcoming as possible.
+          </p>
+        </header>
+
+        <div class="help-grid">
+          <div class="help-card">
+            <h3>Our local support</h3>
+            <p>
+              Yaab Impact works in partnership with community groups in and around Bristol. Together we offer:
+            </p>
+            <ul>
+              <li>Access to low-cost and free food options</li>
+              <li>Shared meals and warm, friendly spaces</li>
+              <li>Information about other support in your area</li>
+            </ul>
+            <p class="help-note">
+              <strong>New projects are growing.</strong> We’re currently developing a network of community food activities. Check back for times and locations, or contact us directly.
+            </p>
+          </div>
+
+          <div class="help-card">
+            <h3>How to reach us</h3>
+            <p>
+              If you need support with food, or want help finding a local project near you, please contact us and a member of the team will get back to you.
+            </p>
+            <ul class="help-steps">
+              <li>Email: <a href="mailto:info@yaabimpact.org.uk">info@yaabimpact.org.uk</a></li>
+              <li>Use the <a href="#contact">contact form</a> at the bottom of this page.</li>
+            </ul>
+            <p>
+              We can signpost you to trusted community food projects in your area, and let you know what Yaab Impact is running locally.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="container section reveal">
-      <div class="split">
-        <div class="split-left">
-          <h2>About YAAB Impact</h2>
-          <p>We partner with organisations to design sustainable programmes and raise funds that scale. We focus on practical solutions that increase reach, strengthen measurement and enable long-term sustainability.</p>
-          <p><strong>Services:</strong> Strategy, Design, Fundraising, Monitoring & Evaluation</p>
+    <!-- ====== GET INVOLVED ====== -->
+    <section id="get-involved" class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Get involved</p>
+          <h2>It takes a whole community to build food security.</h2>
+          <p class="section-subtitle">
+            Whether you’re an individual, a community group, a business or a funder – there’s a way for you to support Yaab Impact’s work.
+          </p>
+        </header>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Volunteer with us</h3>
+            <p>
+              Volunteers are at the heart of everything we do – from collecting surplus food and packing parcels to helping cook, host meals and welcome neighbours.
+            </p>
+            <ul>
+              <li>Flexible roles for different abilities</li>
+              <li>Training and support provided</li>
+              <li>Group volunteering for schools / workplaces</li>
+            </ul>
+            <p class="card-foot">
+              Interested? Use the <a href="#contact">contact form</a> and let us know you’d like to volunteer.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Partner with us</h3>
+            <p>
+              We’re always keen to work with local organisations, food businesses, growers and funders who share our commitment to food justice and community.
+            </p>
+            <ul>
+              <li>Surplus food and in-kind donations</li>
+              <li>Joint projects and events</li>
+              <li>Support for monitoring &amp; impact reporting</li>
+            </ul>
+            <p class="card-foot">
+              Get in touch to explore how we can collaborate.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Support financially</h3>
+            <p>
+              As a CIC, any surplus we generate is reinvested into community food work. Funding helps us keep services running, pilot new ideas and respond quickly
+              when needs change.
+            </p>
+            <ul>
+              <li>One-off donations</li>
+              <li>Regular giving</li>
+              <li>Grants and corporate support</li>
+            </ul>
+            <p class="card-foot">
+              To discuss donations or funding partnerships, please <a href="#contact">contact us</a>.
+            </p>
+          </article>
         </div>
-        <div class="split-right">
-          <div class="card">
-            <h3>Strategy & Design</h3>
-            <p>Delivering programme design and service improvement for maximum impact.</p>
-          </div>
-          <div class="card">
-            <h3>Fundraising</h3>
-            <p>Grant readiness, pitch support and funder engagement strategies.</p>
-          </div>
+      </div>
+    </section>
+
+    <!-- ====== STORIES ====== -->
+    <section id="stories" class="section section-alt">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Stories</p>
+          <h2>Local people, real impact.</h2>
+          <p class="section-subtitle">
+            These short stories are examples of the kind of change Yaab Impact aims to support. Names and details can be adapted when you’re ready to add your own.
+          </p>
+        </header>
+
+        <div class="story-grid">
+          <article class="story-card">
+            <h3>“I didn’t feel like I was asking for charity.”</h3>
+            <p>
+              A parent who visited one of our partner food projects told us that having choice, a warm welcome and time to sit and chat made all the difference.
+              They left with food – and also with information about other support nearby.
+            </p>
+          </article>
+
+          <article class="story-card">
+            <h3>Cooking together, learning together</h3>
+            <p>
+              At a community cook-along we brought together neighbours from different backgrounds to share recipes and tips for making the most of low-cost ingredients.
+              People left with full containers, new ideas and new friendships.
+            </p>
+          </article>
+
+          <article class="story-card">
+            <h3>Young people leading the way</h3>
+            <p>
+              Local young volunteers helped to organise a food collection at their college, sorting donations and supporting a pop-up pantry. They gained skills and
+              confidence while helping to support families near where they live.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="work" class="container section">
-      <h2 class="section-title reveal">Our Work</h2>
-      <div class="cards">
-        <article class="card reveal">
-          <h3>Strategy</h3>
-          <p>Programme design, monitoring &amp; evaluation.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Design</h3>
-          <p>Service &amp; product design for impact.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Fundraising</h3>
-          <p>Grant writing and investor readiness.</p>
-        </article>
-      </div>
-    </section>
+    <!-- ====== CONTACT ====== -->
+    <section id="contact" class="section contact-section">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s talk about food, community and justice.</h2>
+          <p>
+            Whether you need support, want to volunteer, are interested in partnering, or just want to find out more about Yaab Impact, we’d love to hear from you.
+          </p>
+          <p class="contact-details">
+            Email: <a href="mailto:info@yaabimpact.org.uk">info@yaabimpact.org.uk</a><br />
+            (You can also use the form and we’ll reply as soon as we can.)
+          </p>
+        </div>
 
-    <section id="impact" class="container section reveal">
-      <h2>Impact</h2>
-      <p>We measure success by lives changed — examples include beneficiaries reached, programmes scaled and systems strengthened.</p>
-
-      <div class="testimonials">
-        <blockquote class="testimonial reveal">
-          <p>"YAAB helped us structure our programme and raise the funding to scale to new regions."</p>
-          <cite>— Partner organisation</cite>
-        </blockquote>
-        <blockquote class="testimonial reveal">
-          <p>"Their team brought clear thinking and practical tools that we used immediately."</p>
-          <cite>— Programme lead</cite>
-        </blockquote>
-      </div>
-    </section>
-
-    <section id="contact" class="container section reveal">
-      <h2>Contact</h2>
-      <p>Reach out to discuss how we can help grow your impact.</p>
-
-      <!-- Formspree: replace YOUR_FORM_ID when ready -->
-      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-        <div class="form-grid">
+        <form class="contact-form">
           <div class="form-row">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" required>
-            <span class="error" id="name-error" aria-live="polite"></span>
+            <input id="name" type="text" name="name" placeholder="Your name" required />
           </div>
+
           <div class="form-row">
             <label for="email">Email</label>
-            <input id="email" name="_replyto" type="email" required>
-            <span class="error" id="email-error" aria-live="polite"></span>
+            <input id="email" type="email" name="email" placeholder="you@example.com" required />
           </div>
-          <div class="form-row full">
+
+          <div class="form-row">
+            <label for="reason">I’m contacting you about</label>
+            <select id="reason" name="reason">
+              <option value="">Please select</option>
+              <option value="food-support">I need support with food</option>
+              <option value="volunteering">I’d like to volunteer</option>
+              <option value="partnership">Partnership or collaboration</option>
+              <option value="donation">Funding or donation</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-            <span class="error" id="message-error" aria-live="polite"></span>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us a bit more..."></textarea>
           </div>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn primary">Send message</button>
-          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
-        </div>
-      </form>
+
+          <button type="submit" class="btn btn-primary full-width">Send message</button>
+          <p class="form-footnote">
+            This form is a placeholder. To make it live, you can connect it to a service like Formspree, Netlify Forms or a simple email handler.
+          </p>
+        </form>
+      </div>
     </section>
   </main>
 
+  <!-- ====== FOOTER ====== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="container footer-grid">
       <div>
-        <p class="footer-brand">YAAB Impact</p>
-        <p class="muted">Strategic coaching, product design & fundraising support.</p>
+        <span class="brand-mark brand-mark-footer">YI</span>
+        <p class="footer-text">
+          Yaab Impact CIC • Community food projects, shared meals and local partnerships building food security and dignity in Bristol.
+        </p>
       </div>
-      <nav class="footer-nav" aria-label="Footer">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="container copyright">
-      <p>&copy; YAAB Impact 2025</p>
+
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="#mission">Our mission</a>
+          <a href="#what-we-do">What we do</a>
+          <a href="#get-help">Get help</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="#get-involved">Volunteer</a>
+          <a href="#get-involved">Partner with us</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-meta">
+        <p>© <span id="year"></span> Yaab Impact CIC. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
