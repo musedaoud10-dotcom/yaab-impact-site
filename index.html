@@ -12,16 +12,14 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Skip link -->
+  <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ====== HEADER / NAV ====== -->
   <header class="site-header">
     <div class="container nav-container">
       <a href="#home" class="brand">
-        <!-- Logo: make sure this file exists: assets/yaab-logo.png -->
         <img src="assets/yaab-logo.png" alt="Yaab Impact logo" class="brand-logo" />
-        <span class="brand-text">Yaab Impact</span>
       </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -47,7 +45,7 @@
     <section id="home" class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <p class="eyebrow hero-eyebrow">Community Food CIC • Bristol</p>
+          <p class="eyebrow">Community Food CIC • Bristol</p>
           <h1>Good food, dignity and community for everyone.</h1>
           <p class="hero-subtitle">
             Yaab Impact is a community food CIC based in Bristol. We work with local people, community groups and partners to make sure everyone can access good food,
@@ -68,8 +66,8 @@
             <ul class="hero-card-list">
               <li><strong>Community food support</strong> – low-cost and free food options.</li>
               <li><strong>Warm, welcoming spaces</strong> – shared meals and drop-ins.</li>
-              <li><strong>Food skills & growing</strong> – cooking, nutrition and growing together.</li>
-              <li><strong>Partnerships & advocacy</strong> – working for a fairer local food system.</li>
+              <li><strong>Food skills &amp; growing</strong> – cooking, nutrition and growing together.</li>
+              <li><strong>Partnerships &amp; advocacy</strong> – working for a fairer local food system.</li>
             </ul>
             <p class="hero-card-foot">
               Want to work with us? <a href="#contact">Get in touch</a>.
@@ -77,11 +75,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Faint logo watermark behind hero -->
-      <div class="hero-watermark" aria-hidden="true">
-        <img src="assets/yaab-logo.png" alt="" />
-      </div>
+      <div class="hero-blob" aria-hidden="true"></div>
     </section>
 
     <!-- ====== OUR MISSION ====== -->
@@ -143,7 +137,7 @@
           </article>
 
           <article class="card">
-            <h3>Shared meals & warm spaces</h3>
+            <h3>Shared meals &amp; warm spaces</h3>
             <p>
               Food tastes better together. We create welcoming spaces where people can share a hot meal, connect with neighbours and access support if needed.
             </p>
@@ -155,7 +149,7 @@
           </article>
 
           <article class="card">
-            <h3>Skills, growing & education</h3>
+            <h3>Skills, growing &amp; education</h3>
             <p>
               We support people to grow, cook and enjoy food with confidence – and to shape local food projects that reflect their cultures and tastes.
             </p>
@@ -404,8 +398,10 @@
   <!-- ====== FOOTER ====== -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="assets/yaab-logo.png" alt="Yaab Impact logo" class="footer-logo" />
+      <div>
+        <div class="footer-brand">
+          <img src="assets/yaab-logo.png" alt="Yaab Impact logo" class="footer-logo" />
+        </div>
         <p class="footer-text">
           Yaab Impact CIC • Community food projects, shared meals and local partnerships building food security and dignity in Bristol.
         </p>
