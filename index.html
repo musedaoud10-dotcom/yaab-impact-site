@@ -19,9 +19,8 @@
   <header class="site-header">
     <div class="container nav-container">
       <a href="#home" class="brand">
-        <!-- Replace src with your actual logo if you have one -->
-        <!-- <img src="assets/yaab-logo.png" alt="Yaab Impact logo" class="brand-logo" /> -->
-        <span class="brand-mark">YI</span>
+        <!-- Logo: make sure this file exists: assets/yaab-logo.png -->
+        <img src="assets/yaab-logo.png" alt="Yaab Impact logo" class="brand-logo" />
         <span class="brand-text">Yaab Impact</span>
       </a>
 
@@ -48,7 +47,7 @@
     <section id="home" class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">Community Food CIC • Bristol</p>
+          <p class="eyebrow hero-eyebrow">Community Food CIC • Bristol</p>
           <h1>Good food, dignity and community for everyone.</h1>
           <p class="hero-subtitle">
             Yaab Impact is a community food CIC based in Bristol. We work with local people, community groups and partners to make sure everyone can access good food,
@@ -78,7 +77,11 @@
           </div>
         </div>
       </div>
-      <div class="hero-blob" aria-hidden="true"></div>
+
+      <!-- Faint logo watermark behind hero -->
+      <div class="hero-watermark" aria-hidden="true">
+        <img src="assets/yaab-logo.png" alt="" />
+      </div>
     </section>
 
     <!-- ====== OUR MISSION ====== -->
@@ -401,8 +404,8 @@
   <!-- ====== FOOTER ====== -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
-        <span class="brand-mark brand-mark-footer">YI</span>
+      <div class="footer-brand">
+        <img src="assets/yaab-logo.png" alt="Yaab Impact logo" class="footer-logo" />
         <p class="footer-text">
           Yaab Impact CIC • Community food projects, shared meals and local partnerships building food security and dignity in Bristol.
         </p>
