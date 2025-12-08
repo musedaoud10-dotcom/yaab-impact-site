@@ -8,7 +8,7 @@ if (navToggle && nav) {
     navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
   });
 
-  // Close menu after clicking a link (mobile)
+  // Close menu after clicking a link on mobile
   nav.addEventListener("click", (e) => {
     if (e.target.tagName === "A" && nav.classList.contains("open")) {
       nav.classList.remove("open");
@@ -17,12 +17,14 @@ if (navToggle && nav) {
   });
 }
 
-// Smooth scroll for in-page links (optional enhancement)
+// Smooth scroll for in-page links
 document.addEventListener("click", (e) => {
   const link = e.target.closest('a[href^="#"]');
   if (!link) return;
 
   const targetId = link.getAttribute("href").slice(1);
+  if (!targetId) return;
+
   const targetEl = document.getElementById(targetId);
   if (!targetEl) return;
 
